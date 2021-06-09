@@ -1,0 +1,14 @@
+# github.com/davecgh/go-spew v1.1.0
+github.com/davecgh/go-spew/spew
+# github.com/go-resty/resty/v2 v2.4.0
+## explicit
+github.com/go-resty/resty/v2
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/testify v1.7.0
+## explicit
+github.com/stretchr/testify/assert
+# golang.org/x/net v0.0.0-20201224014010-6772e930b67b
+golang.org/x/net/publicsuffix
+# gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+gopkg.in/yaml.v3
