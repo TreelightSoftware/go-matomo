@@ -30,7 +30,7 @@ func TestAllEncoding(t *testing.T) {
 	assert.Equal(t, 3, len(encoded)) // increment as other auto-populated fields are added
 	assert.Empty(t, encoded["_rck"])
 
-	encoded = allParams.encode()
+	encoded = testAllParams.encode()
 	assert.Equal(t, 30, len(encoded)) // this will increase as more fields are supported
 }
 
@@ -79,7 +79,7 @@ func TestEventParameterEncodings(t *testing.T) {
 	assert.Equal(t, url.QueryEscape(fmt.Sprintf("%v", *testEventParams.Value)), encoded["e_v"])
 }
 
-var allParams = Parameters{
+var testAllParams = Parameters{
 	RecommendedParameters:     &RecommendedParameters{},
 	UserParameters:            testUserParams,
 	ActionParameters:          &ActionParameters{},
