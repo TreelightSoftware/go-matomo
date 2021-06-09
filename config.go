@@ -23,6 +23,7 @@ func Setup() {
 	if config.Domain == "" {
 		// TODO: convert to logger
 		fmt.Printf("\n----------------------------\nERROR: MATOMO_DOMAIN was not set, so events will not be tracked\n----------------------------\n")
+		fmt.Fprintf(os.Stderr, "ERROR: MATOMO_DOMAIN was not set, so events will not be tracked\n")
 	}
 	// make sure they didn't put the matomo.php at the end
 	config.Domain = strings.TrimSuffix(config.Domain, "matomo.php")
@@ -38,4 +39,8 @@ func envHelper(key, defaultValue string) string {
 		found = defaultValue
 	}
 	return found
+}
+
+func init() {
+	Setup()
 }
