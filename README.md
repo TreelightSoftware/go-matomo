@@ -2,6 +2,10 @@
 
 A simple Go SDK for sending data to a Matomo instance. This is useful for tracking user events on the server-side and publishing them to a Matomo site.
 
+## Installation
+
+`go get github.com/treelightsoftware/go-matomo`
+
 ## Configuration
 
 First, you must have a working Matomo installation. Not sure how to get started with Matomo? Refer to their [website](https://matomo.org/).
@@ -23,16 +27,16 @@ If you are running the SDK on a system that is only responsible for reporting to
 Upon startup, the SDK will call it's `init` func, which calls its `Setup` func. This prepares the SDK for usage. When you have an event to send up, you will populate a `matomo.Parameters{}` struct. Most fields are optional. If they are `nil`, they will not be included. Since pointers are used to denote presence (as default values in Go are interpreted as present values by Matomo), you will want to use the `*Ptr` helper functions. For example:
 
 ```go
-params := Parameters{
-  RecommendedParameters: &RecommendedParameters{
+params := matomo.Parameters{
+  RecommendedParameters: &matomo.RecommendedParameters{
     ActionName: matomo.StringPtr("visit"),
     URL: matomo.StringPtr("/users/me"),
-    VisitorID: Smatomo.tringPtr("UNIQUE_HEX_VALUE"),
+    VisitorID: matomo.StringPtr("UNIQUE_HEX_VALUE"),
   },
-  UserParameters: &UserParameters{
+  UserParameters: &matomo.UserParameters{
     UserID: matomo.StringPtr("mytestuser@mysite.com"),
   },
-  EventTrackingParameters: &EventTrackingParameters{
+  EventTrackingParameters: &matomo.EventTrackingParameters{
     Category: matomo.StringPtr("site visit"),
     Action: matomo.StringPtr("loaded"),
     Name: matomo.StringPtr("user profile load"),
