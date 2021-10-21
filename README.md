@@ -46,7 +46,7 @@ params := matomo.Parameters{
 err := matomo.Send(&params)
 ```
 
-The `RecommendedParamters.VisitorID` field may trip you up. If you have the user's DB identifier or some other identifying material, you can convert it to a 16 character hex. Or you can generate a pseudorandom one with the IP of the user, or whatever other identifying information you are comfortable collecting.
+The `RecommendedParameters.VisitorID` field may trip you up. If you have the user's DB identifier or some other identifying material, you can convert it to a 16 character hex. Or you can generate a pseudorandom one with the IP of the user, or whatever other identifying information you are comfortable collecting.
 
 ## Contributing
 
