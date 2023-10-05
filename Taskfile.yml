@@ -1,0 +1,27 @@
+version: '3'
+
+env:
+  GOFLAGS: "-mod=vendor"
+
+tasks:
+  build:
+    desc: Builds the project
+    cmds:
+      - go build -mod=vendor .
+
+  vendor:
+    desc: Updates the vendor directory
+    cmds:
+      - go mod tidy
+      - go mod vendor
+
+  test:
+    desc: Runs go test
+    cmds:
+      - go test -mod=vendor -v ./
+
+  cover:
+    desc: Runs coverage and generates the needed artifacts
+    cmds:
+      - go test -mod=vendor -v -covermode=atomic -coverprofile=coverage.out ./ && gocover-cobertura < coverage.out > coverage.xml && go tool cover -html=coverage.out -o coverage.html
+    
